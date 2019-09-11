@@ -1,0 +1,3 @@
+pip install google-cloud-translate
+brew install protobuf
+pip install protobuf3

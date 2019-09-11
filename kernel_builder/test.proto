@@ -1,0 +1,22 @@
+syntax = "proto3";
+package io.mynerva.proto.kernel;
+option go_package = "kernel";
+
+service KernelImageBuilderService {
+    rpc CreateKernelImage(CreateKernelImageRequest) returns (CreateKernelImageResponse);
+}
+
+message CreateKernelImageRequest {
+    // The language and version in "language@version" format.
+    // e.g. julia@1.2
+    string language = 1;
+
+    // A language-specific(?) format for specifying packages.
+    // e.g. { "Flux": "latest", "Interact": "0.6.9" }
+    string packages_json = 2;
+
+    // Eventually, files?
+}
+message CreateKernelImageResponse {
+    string image = 1;
+}
